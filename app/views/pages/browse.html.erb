@@ -1,0 +1,71 @@
+<script>
+
+
+  
+  $(document).ready(function () {
+    var genre_id = { 
+    28: "Action",
+    12: "Adventure", 
+    16: "Animation", 
+    35: "Comedy", 
+    99: "Documentary", 
+    18: "Drama", 
+    10751: "Family", 
+    14: "Fantasy", 
+    36: "History", 
+    27: "Horror",
+    10402: "Music", 
+    9648: "Mystery", 
+    10479: "Romance", 
+    878: "Science Fiction", 
+    10770: "TV Movie", 
+    53: "Thriller", 
+    10752: "War", 
+    37: "Western" }
+
+
+    CallAPI();
+
+    function CallAPI() {
+      $.ajax({
+        type: "GET",
+        url: "https://api.themoviedb.org/3/movie/popular?api_key=4aa07b165bfe3ed8596da63f31c9a2bc&language=en-US&page=1",
+        dataType: "json",
+        success: function (result) {
+          var resultHtml = $("<div class=\"resultDiv\"><p>Here's what's poppin!</p>");
+          for (i = 0; i < result["results"].length; i++) {
+            var image = "https://image.tmdb.org/t/p/w500/" + result["results"][i]["poster_path"];
+            var genre = genre_id[result["results"][i]["genre_ids"][0]];
+            var movie_title = result["results"][i]["title"]; 
+            var movie_id = result["results"][i]["id"]
+            var movie_release = result["results"][i]["release_date"]
+            
+            resultHtml.append("<div class=\"result\" resourceId=\"" + movie_id + "\">" 
+            + "<img src=\"" + image + "\" width=\"250\"" + "\" />" 
+            + "<p>" 
+            + movie_title
+            + "<p>Genre: " + genre + "</p>"
+            + "<p>Release Date: " + movie_release + "</p>"
+            + "<p>Movie ID: " + movie_id + "</p>"
+            + "</p></div>"
+            + "<a href='/movies/" + movie_id + "'>View/ Review " + movie_title + "</a> "
+            // href='/movies/' + movie_id + '/reviews/new'
+            )
+          }
+          resultHtml.append("</div>");
+          $("#message").html(resultHtml);
+        },
+        error: function (xhr, status, error) {
+          $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+        }
+      });
+    }
+  });
+
+</script>
+
+
+
+<div id="message">Swag</div>
+
+

@@ -1,0 +1,16 @@
+<h1>Reviews</h1>
+<div id="reviews-index" %>
+  <% @reviews.each do |review| %>
+    <div class="review-index-info">
+      Movie: <a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />
+      Rating: <%= review.rating %> <br />
+      <% if review.comment.present? %>
+        Comment: <%= review.comment %> <br/>
+      <% end %>
+      Date Created: <%= review.created_at %> <br />
+      Review By: <%= review.user_email %> <br />
+      
+    </div>
+  <% end %>
+
+</div>

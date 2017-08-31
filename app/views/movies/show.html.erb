@@ -1,0 +1,19 @@
+<img src="https://image.tmdb.org/t/p/w500/<%= @movie['poster_path'] %>" width=250 >
+<%= @movie["title"] %> <br />
+<%= @movie["genre"] %> <br />
+<%= @movie["release_date"] %> <br />
+
+
+<% @reviews.each do |review| %>
+  <p>
+    Rating: <%= review.rating %>/10 <br/>
+    Review By: <%= review.user_email %> <br/>
+    <% if review.comment.present? %>
+      Comment: <%= review.comment %> <br/>
+    <% end %>
+    Date Created: <%= review.created_at %> <br />
+  </p>
+<% end %>
+
+<a href="/movies/<%= @movie["tmdb_id"] %>/reviews/new">Review</a>
+
