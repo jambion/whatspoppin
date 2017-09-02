@@ -1,3 +1,13 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+tr {
+  text-align: center;
+}
+
+.browse-page {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+}

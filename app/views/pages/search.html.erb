@@ -20,6 +20,8 @@
     37: "Western" }
   
   $(document).ready(function () {
+    
+    var $movie_list = $("#movie-list");
     $("#submit").click(function () {
       CallAPI();
     });
@@ -31,7 +33,6 @@
         data: { "api_key": "4aa07b165bfe3ed8596da63f31c9a2bc" },
         dataType: "json",
         success: function (result) {
-          var resultHtml = $("<div class=\"resultDiv\"><p>Movies search results:</p>");
           for (i = 0; i < result["results"].length; i++) {
             var image = "https://image.tmdb.org/t/p/w500/" + result["results"][i]["poster_path"];
             var genre = genre_id[result["results"][i]["genre_ids"][0]];
@@ -39,25 +40,24 @@
             var movie_id = result["results"][i]["id"]
             var movie_release = result["results"][i]["release_date"]
             
-            resultHtml.append("<div class=\"result\" resourceId=\"" + movie_id + "\">" 
-            + "<img src=\"" + image + "\" width=\"250\"" + "\" />" 
-            + "<p><a>" 
-            + movie_title
-            + "<p>Genre: " + genre + "</p>"
-            + "<p>Release Date: " + movie_release + "</p>"
-            + "<p>Movie ID: " + movie_id + "</p>"
-            + "</a></p></div>"
-            + "<a href='/movies/" + movie_id + "'>View/ Review " + movie_title + "</a> "
-            )
+            $movie_list.append("<tr>" 
+            + "<td><img src=\"" + image + "\" width=\"250\"" + "\" /></td>" 
+            + "<td><strong>" + movie_title + "</strong></td>"
+            + "<td><p>Genre: " + genre + "</p></td>"
+            + "<td><p>Release Date: " + movie_release + "</p></td>"
+            // + "<td><p>Movie ID: " + movie_id + "</p></td>"
+            + "<td><a href='/movies/" + movie_id + "'>View/ Review " + movie_title + "</a> </td></tr>"
+
+            );
           }
-          resultHtml.append("</div>");
-          $("#message").html(resultHtml);
+          $(".movie-table").tablesorter(); 
         },
         error: function (xhr, status, error) {
-          $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+          $movie_list.html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
         }
       });
     }
+    
   });
 
 </script>
@@ -66,6 +66,23 @@
 
 <input type="text" id="searchInput" placeholder="Search Movie">
 <button id="submit">Search!</button>
-<div id="message"></div>
+<div class="movie-listing-index">
+  <table class="movie-table tablesorter">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Release Date</th>
+      <th></th>
+  
+    </tr>
+  </thead>
+  <tbody id="movie-list">
+
+  </tbody>
+  
+  </table>
+</div>
 
 

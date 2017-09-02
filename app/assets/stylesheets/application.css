@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  
+}
+
+a {
+  color: #0074D9;
+}
+
+a:link {
+  text-decoration: none;
+}

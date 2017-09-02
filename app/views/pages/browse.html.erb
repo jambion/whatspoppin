@@ -1,8 +1,7 @@
 <script>
-
-
-  
   $(document).ready(function () {
+    
+    var $movie_list = $("#movie-list");
     var genre_id = { 
     28: "Action",
     12: "Adventure", 
@@ -27,12 +26,18 @@
     CallAPI();
 
     function CallAPI() {
+      
       $.ajax({
         type: "GET",
         url: "https://api.themoviedb.org/3/movie/popular?api_key=4aa07b165bfe3ed8596da63f31c9a2bc&language=en-US&page=1",
         dataType: "json",
         success: function (result) {
-          var resultHtml = $("<div class=\"resultDiv\"><p>Here's what's poppin!</p>");
+          // var resultHtml = $("<p>Here's what's poppin!</p>");
+              
+          // $message.append("<table><thead><tr><th>HELLO Friend :D </th></tr></thead>");
+          // $message.append("<tbody><tr><td>Samesies</td></tr></tbody></table>");
+          // resultHtml.append("")
+          
           for (i = 0; i < result["results"].length; i++) {
             var image = "https://image.tmdb.org/t/p/w500/" + result["results"][i]["poster_path"];
             var genre = genre_id[result["results"][i]["genre_ids"][0]];
@@ -40,32 +45,115 @@
             var movie_id = result["results"][i]["id"]
             var movie_release = result["results"][i]["release_date"]
             
-            resultHtml.append("<div class=\"result\" resourceId=\"" + movie_id + "\">" 
-            + "<img src=\"" + image + "\" width=\"250\"" + "\" />" 
-            + "<p>" 
-            + movie_title
-            + "<p>Genre: " + genre + "</p>"
-            + "<p>Release Date: " + movie_release + "</p>"
-            + "<p>Movie ID: " + movie_id + "</p>"
-            + "</p></div>"
-            + "<a href='/movies/" + movie_id + "'>View/ Review " + movie_title + "</a> "
-            // href='/movies/' + movie_id + '/reviews/new'
-            )
+            $movie_list.append("<tr>" 
+            + "<td><img src=\"" + image + "\" width=\"250\"" + "\" /></td>" 
+            + "<td><strong>" + movie_title + "</strong></td>"
+            + "<td><p>Genre: " + genre + "</p></td>"
+            + "<td><p>Release Date: " + movie_release + "</p></td>"
+            // + "<td><p>Movie ID: " + movie_id + "</p></td>"
+            + "<td><a href='/movies/" + movie_id + "'>View/ Review " + movie_title + "</a> </td></tr>"
+
+            );
           }
-          resultHtml.append("</div>");
-          $("#message").html(resultHtml);
+        $(".movie-table").tablesorter(); 
         },
         error: function (xhr, status, error) {
-          $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+          $movie_list.html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
         }
       });
     }
+    
   });
 
+
+
 </script>
+  
+
+<div class="browse-page">
+
+  <div class="movie-listing-index">
+    <table class="movie-table tablesorter">
+    <thead>
+      <tr>
+        <th class="{sorter: false}"></th>
+        <th>Title<img src="/assets/bg.gif"/></th>
+        <th>Genre<img src="/assets/bg.gif"/></th>
+        <th>Release Date<img src="/assets/bg.gif"/></th>
+        <th class="{sorter: false}"></th>
+    
+      </tr>
+    </thead>
+    <tbody id="movie-list">
+  
+    </tbody>
+    
+    </table>
+  </div>
+  
+  <div class="browse-reviews">
+    <h2>Recent Reviews</h2>
+    <table>
+    <% @reviews.each do |review| %>
+    <div class="review-index-info">
+      Movie: <a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />
+      Rating: <%= review.rating %> <br />
+      <% if review.comment.present? %>
+        Comment: <%= review.comment %> <br/>
+      <% end %>
+      Date Created: <%= review.created_at %> <br />
+      Review By: <%= review.user_email %> <br />
+      
+    </div>
+  <% end %>
+      
+    </table>
+    
+  </div>
+  
+  
+</div>
 
 
 
-<div id="message">Swag</div>
+<!---->
+  <!--<div class="movie-listing-index">-->
+    <!--<table class="movie-table sortable">-->
+  <!--  <table class="movie-table tablesorter">-->
+  <!--    <thead>-->
+  <!--    <tr>-->
+  <!--      <th></th>-->
+  <!--      <th>Title</th>-->
+  <!--      <th>Genre</th>-->
+  <!--      <th>Release Date</th>-->
+  <!--      <th></th>-->
+    
+  <!--    </tr>-->
+  <!--    </thead>-->
+      
+  <!--    <tbody>-->
+      
+  <!--      <div class = "movie-individual">-->
+  <!--        <div>-->
+  <!--          <tr>-->
+  <!--              <td>1</td>-->
+  <!--              <td>2 </td>-->
+  <!--              <td>3 </td>-->
+  <!--              <td>7</td>-->
+  <!--          </tr>-->
+  <!--        </div>          -->
+  <!--        <div>-->
+  <!--          <tr>-->
+  <!--              <td>1</td>-->
+  <!--              <td>2 </td>-->
+  <!--              <td>3 </td>-->
+  <!--              <td>7</td>-->
+  <!--          </tr>-->
+  <!--        </div>-->
 
-
+  <!--      </div>-->
+      
+  <!--    </tbody>-->
+      
+  <!--  </table>-->
+  <!--</div>-->
