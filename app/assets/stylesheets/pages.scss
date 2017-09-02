@@ -2,12 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-tr {
-  text-align: center;
-}
-
 .browse-page {
   display: flex;
   justify-content: space-around;
-  border: 1px solid black;
+  // border: 1px solid black;
+}
+
+.search-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+h2 {
+  text-align: center;
+}
+
+.search {
+  
+}
+
+tr {
+  text-align: center;
 }

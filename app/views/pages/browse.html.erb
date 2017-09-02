@@ -47,12 +47,12 @@
             
             $movie_list.append("<tr>" 
             + "<td><img src=\"" + image + "\" width=\"250\"" + "\" /></td>" 
-            + "<td><strong>" + movie_title + "</strong></td>"
-            + "<td><p>Genre: " + genre + "</p></td>"
-            + "<td><p>Release Date: " + movie_release + "</p></td>"
-            // + "<td><p>Movie ID: " + movie_id + "</p></td>"
-            + "<td><a href='/movies/" + movie_id + "'>View/ Review " + movie_title + "</a> </td></tr>"
+            + "<td><strong>" + movie_title + "</strong><a href='/movies/" + movie_id + "'><br />View/ Review</a></td>"
+            + "<td><p>" + genre + "</p></td>"
+            + "<td><p>" + movie_release + "</p></td>"
 
+            + "</tr>"
+// <td><a href='/movies/" + movie_id + "'>View/ Review " + movie_title + "</a> </td>
             );
           }
         $(".movie-table").tablesorter(); 
@@ -73,6 +73,7 @@
 <div class="browse-page">
 
   <div class="movie-listing-index">
+    <h2 class="heading">The Most Popular Movies</h2>
     <table class="movie-table tablesorter">
     <thead>
       <tr>
@@ -80,8 +81,7 @@
         <th>Title<img src="/assets/bg.gif"/></th>
         <th>Genre<img src="/assets/bg.gif"/></th>
         <th>Release Date<img src="/assets/bg.gif"/></th>
-        <th class="{sorter: false}"></th>
-    
+
       </tr>
     </thead>
     <tbody id="movie-list">
@@ -92,20 +92,16 @@
   </div>
   
   <div class="browse-reviews">
-    <h2>Recent Reviews</h2>
+    <h2 class="heading">Recent Reviews</h2>
     <table>
     <% @reviews.each do |review| %>
     <div class="review-index-info">
-      Movie: <a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />
+      <a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />
       Rating: <%= review.rating %> <br />
-      <% if review.comment.present? %>
-        Comment: <%= review.comment %> <br/>
-      <% end %>
-      Date Created: <%= review.created_at %> <br />
       Review By: <%= review.user_email %> <br />
       
     </div>
-  <% end %>
+    <% end %>
       
     </table>
     

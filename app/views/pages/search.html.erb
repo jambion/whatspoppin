@@ -20,19 +20,22 @@
     37: "Western" }
   
   $(document).ready(function () {
+    $(".search-table").hide();
+    var $search_list = $("#search-list");
     
-    var $movie_list = $("#movie-list");
     $("#submit").click(function () {
-      CallAPI();
+      $(".search-table").slideDown();
+      SearchMovies();
     });
     
-    function CallAPI() {
+    function SearchMovies() {
       $.ajax({
         url: "https://api.themoviedb.org/3/search/movie?query=" + 
         $("#searchInput").val(),
         data: { "api_key": "4aa07b165bfe3ed8596da63f31c9a2bc" },
         dataType: "json",
         success: function (result) {
+          $search_list.html("");
           for (i = 0; i < result["results"].length; i++) {
             var image = "https://image.tmdb.org/t/p/w500/" + result["results"][i]["poster_path"];
             var genre = genre_id[result["results"][i]["genre_ids"][0]];
@@ -40,20 +43,18 @@
             var movie_id = result["results"][i]["id"]
             var movie_release = result["results"][i]["release_date"]
             
-            $movie_list.append("<tr>" 
+            $search_list.append("<tr>" 
             + "<td><img src=\"" + image + "\" width=\"250\"" + "\" /></td>" 
-            + "<td><strong>" + movie_title + "</strong></td>"
-            + "<td><p>Genre: " + genre + "</p></td>"
-            + "<td><p>Release Date: " + movie_release + "</p></td>"
-            // + "<td><p>Movie ID: " + movie_id + "</p></td>"
-            + "<td><a href='/movies/" + movie_id + "'>View/ Review " + movie_title + "</a> </td></tr>"
-
+            + "<td><strong>" + movie_title + "</strong><a href='/movies/" + movie_id + "'><br />View/ Review</a></td>"
+            + "<td><p>" + genre + "</p></td>"
+            + "<td><p>" + movie_release + "</p></td>"
+            + "</tr>"
             );
           }
           $(".movie-table").tablesorter(); 
         },
         error: function (xhr, status, error) {
-          $movie_list.html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+          $search_list.html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
         }
       });
     }
@@ -63,26 +64,27 @@
 </script>
 
 
-
-<input type="text" id="searchInput" placeholder="Search Movie">
-<button id="submit">Search!</button>
-<div class="movie-listing-index">
-  <table class="movie-table tablesorter">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Genre</th>
-      <th>Release Date</th>
-      <th></th>
+<div class="search-page">
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="Search Movie">
+    <button id="submit">Search!</button>
+  </div>
   
-    </tr>
-  </thead>
-  <tbody id="movie-list">
-
-  </tbody>
-  
-  </table>
+  <div class="movie-listing-index">
+      <table class="search-table  movie-table tablesorter">
+      <thead>
+        <tr>
+          <th class="{sorter: false}"></th>
+          <th>Title<img src="/assets/bg.gif"/></th>
+          <th>Genre<img src="/assets/bg.gif"/></th>
+          <th>Release Date<img src="/assets/bg.gif"/></th>
+        </tr>
+      </thead>
+      
+      <tbody id="search-list">
+      </tbody>
+      </table>
+  </div>
 </div>
 
 
