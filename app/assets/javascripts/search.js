@@ -24,10 +24,10 @@ $(document).ready(function () {
   
   $("#submit").click(function () {
     $('.search-table').attr('style','display:block');
-    SearchMovies();
+    searchMovies();
   });
   
-  function SearchMovies() {
+  function searchMovies() {
     $.ajax({
       url: "https://api.themoviedb.org/3/search/movie?query=" + 
       $("#searchInput").val(),

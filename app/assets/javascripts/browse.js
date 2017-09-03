@@ -22,9 +22,9 @@
     37: "Western" }
 
 
-    CallAPI();
+    browseMovies();
 
-    function CallAPI() {
+    function browseMovies() {
       
       $.ajax({
         type: "GET",
