@@ -1,4 +1,7 @@
 class MoviesController < ApplicationController
+  require "net/http"
+  require "uri"
+  
   def show 
     @movie = get_single_movie(params[:id])
     @reviews = Review.where(movie_id: params[:id])
