@@ -1,7 +1,7 @@
 <script>
   $(document).ready(function () {
     
-    var $movie_list = $("#movie-list");
+    var $browse_list = $("#browse-list");
     var genre_id = { 
     28: "Action",
     12: "Adventure", 
@@ -32,12 +32,6 @@
         url: "https://api.themoviedb.org/3/movie/popular?api_key=4aa07b165bfe3ed8596da63f31c9a2bc&language=en-US&page=1",
         dataType: "json",
         success: function (result) {
-          // var resultHtml = $("<p>Here's what's poppin!</p>");
-              
-          // $message.append("<table><thead><tr><th>HELLO Friend :D </th></tr></thead>");
-          // $message.append("<tbody><tr><td>Samesies</td></tr></tbody></table>");
-          // resultHtml.append("")
-          
           for (i = 0; i < result["results"].length; i++) {
             var image = "https://image.tmdb.org/t/p/w500/" + result["results"][i]["poster_path"];
             var genre = genre_id[result["results"][i]["genre_ids"][0]];
@@ -45,20 +39,19 @@
             var movie_id = result["results"][i]["id"]
             var movie_release = result["results"][i]["release_date"]
             
-            $movie_list.append("<tr>" 
+            $browse_list.append("<tr>" 
             + "<td><img src=\"" + image + "\" width=\"250\"" + "\" /></td>" 
             + "<td><strong>" + movie_title + "</strong><a href='/movies/" + movie_id + "'><br />View/ Review</a></td>"
             + "<td><p>" + genre + "</p></td>"
             + "<td><p>" + movie_release + "</p></td>"
 
             + "</tr>"
-// <td><a href='/movies/" + movie_id + "'>View/ Review " + movie_title + "</a> </td>
             );
           }
         $(".movie-table").tablesorter(); 
         },
         error: function (xhr, status, error) {
-          $movie_list.html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+          $browse_list.html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
         }
       });
     }
@@ -72,7 +65,7 @@
 
 <div class="browse-page">
 
-  <div class="movie-listing-index">
+  <div class="browse-listing-index">
     <h2 class="heading">The Most Popular Movies</h2>
     <table class="movie-table tablesorter">
     <thead>
@@ -84,7 +77,7 @@
 
       </tr>
     </thead>
-    <tbody id="movie-list">
+    <tbody id="browse-list">
   
     </tbody>
     
@@ -109,47 +102,3 @@
   
   
 </div>
-
-
-
-<!---->
-  <!--<div class="movie-listing-index">-->
-    <!--<table class="movie-table sortable">-->
-  <!--  <table class="movie-table tablesorter">-->
-  <!--    <thead>-->
-  <!--    <tr>-->
-  <!--      <th></th>-->
-  <!--      <th>Title</th>-->
-  <!--      <th>Genre</th>-->
-  <!--      <th>Release Date</th>-->
-  <!--      <th></th>-->
-    
-  <!--    </tr>-->
-  <!--    </thead>-->
-      
-  <!--    <tbody>-->
-      
-  <!--      <div class = "movie-individual">-->
-  <!--        <div>-->
-  <!--          <tr>-->
-  <!--              <td>1</td>-->
-  <!--              <td>2 </td>-->
-  <!--              <td>3 </td>-->
-  <!--              <td>7</td>-->
-  <!--          </tr>-->
-  <!--        </div>          -->
-  <!--        <div>-->
-  <!--          <tr>-->
-  <!--              <td>1</td>-->
-  <!--              <td>2 </td>-->
-  <!--              <td>3 </td>-->
-  <!--              <td>7</td>-->
-  <!--          </tr>-->
-  <!--        </div>-->
-
-  <!--      </div>-->
-      
-  <!--    </tbody>-->
-      
-  <!--  </table>-->
-  <!--</div>-->

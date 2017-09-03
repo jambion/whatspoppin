@@ -1,3 +1,19 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.movie-show {
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+  align-items: center;
+}
+
+.show-bottom {
+  display: flex;
+  justify-content: space-around;
+  // margin: 20px;
+}
+
+.show-header {
+  font-size: 200%;
+}

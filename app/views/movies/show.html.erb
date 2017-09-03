@@ -1,19 +1,36 @@
-<img src="https://image.tmdb.org/t/p/w500/<%= @movie['poster_path'] %>" width=250 >
-<%= @movie["title"] %> <br />
-<%= @movie["genre"] %> <br />
-<%= @movie["release_date"] %> <br />
-
-
-<% @reviews.each do |review| %>
-  <p>
-    Rating: <%= review.rating %>/10 <br/>
-    Review By: <%= review.user_email %> <br/>
-    <% if review.comment.present? %>
-      Comment: <%= review.comment %> <br/>
+<div class="movie-show">
+  <div class="show-top">
+    <span class="show-header"><%= @movie["title"] %></span> 
+  </div>
+  
+  <div class="show-bottom">
+    <div class="poster">
+      <img src="https://image.tmdb.org/t/p/w500/<%= @movie['poster_path'] %>" width=250 >
+    </div>
+    <div class="single-movie">
+    <%= @movie["genre"] %> <br />
+    <%= @movie["release_date"] %> <br />
+    <a href="/movies/<%= @movie["tmdb_id"] %>/reviews/new">Review</a>
+    </div>
+    
+    <% if @reviews.exists? %>
+      
+      <div class="movie-show-reviews">
+        <% if @reviews.length > 1 %>
+          <div class="show-header">Reviews</div>
+        <% else %>
+          <div class="show-header">Review</div>
+        <% end %>
+        <% @reviews.each do |review| %>
+            Rating: <%= review.rating %>/10 <br/>
+            Review By: <%= review.user_email %> <br/>
+            <% if review.comment.present? %>
+              Comment: <%= review.comment %> <br/>
+            <% end %>
+            Date Created: <%= review.created_at %> <br />
+        <% end %>
+      </div>
     <% end %>
-    Date Created: <%= review.created_at %> <br />
-  </p>
-<% end %>
+  </div>
 
-<a href="/movies/<%= @movie["tmdb_id"] %>/reviews/new">Review</a>
-
+</div>
