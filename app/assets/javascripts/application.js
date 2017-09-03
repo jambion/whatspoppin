@@ -16,4 +16,3 @@
 //= require turbolinks
 //= require jquery-tablesorter
 //= require_tree .
-//= require browse.js
