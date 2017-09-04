@@ -23,7 +23,8 @@ private
       "release_date" => json["release_date"],
       "genre" => genre_list[json["genres"].first["id"]],
       "poster_path" => json["poster_path"],
-      "tmdb_id" => json["id"]
+      "tmdb_id" => json["id"],
+      "overview" => json["overview"]
     }
     
     return movieHash
