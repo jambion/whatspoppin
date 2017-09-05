@@ -2,14 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.search-table {
-  display: none;
-}
+
+
+// .content {
+//   width: 70%;
+//   display: flex;
+//   justify-content: center;
+//   border: 1px solid blue;
+// }
 
 .browse-page {
   display: flex;
   justify-content: space-around;
   // border: 1px solid black;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .search-page {
@@ -24,10 +32,18 @@ h2 {
   text-align: center;
 }
 
-.search {
-  
+.browse-listing-index {
+  margin-right: 15px;
+}
+
+.browse-reviews {
+  margin-left: 15px;
 }
 
 tr {
   text-align: center;
+}
+
+.search-table {
+  display: none;
 }

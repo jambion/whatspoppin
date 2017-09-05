@@ -23,7 +23,7 @@ $(document).ready(function () {
           
           $browse_list.append("<tr>" 
           + "<td><img src=\"" + image + "\" width=\"250\"" + "\" /></td>" 
-          + "<td><strong>" + movie_title + "</strong><a href='/movies/" + movie_id + "'><br />View/ Review</a></td>"
+          + "<td><strong>" + movie_title + "</strong><br /><a href='/movies/" + movie_id + "'>View/ Review</a></td>"
           + "<td><p>" + genre + "</p></td>"
           + "<td><p>" + movie_release + "</p></td>"
           + "</tr>"
@@ -40,24 +40,22 @@ $(document).ready(function () {
 
 </script>
 
+
 <div class="browse-page">
 
   <div class="browse-listing-index">
     <h2 class="heading">The Most Popular Movies</h2>
     <table class="movie-table tablesorter">
-    <thead>
-      <tr>
-        <th class="{sorter: false}"></th>
-        <th>Title<img src="/assets/bg.gif"/></th>
-        <th>Genre<img src="/assets/bg.gif"/></th>
-        <th>Release Date<img src="/assets/bg.gif"/></th>
-
-      </tr>
-    </thead>
-    <tbody id="browse-list">
-  
-    </tbody>
-    
+      <thead>
+        <tr>
+          <th class="{sorter: false}"></th>
+          <th>Title<img src="/assets/bg.gif"/></th>
+          <th>Genre<img src="/assets/bg.gif"/></th>
+          <th>Release Date<img src="/assets/bg.gif"/></th>
+        </tr>
+      </thead>
+      <tbody id="browse-list">
+      </tbody>
     </table>
   </div>
   
