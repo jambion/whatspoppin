@@ -1,6 +1,6 @@
 
 <div id="reviews-index">
-  <h1>Reviews</h1>
+  <h1>All Reviews</h1>
   <% @reviews.each do |review| %>
     <div class="review-details">
       <a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />

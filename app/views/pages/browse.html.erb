@@ -61,22 +61,19 @@ $(document).ready(function () {
   
   <div class="browse-reviews">
     <h2 class="heading">Recent Reviews</h2>
-    <table>
+    <div id="recent-reviews">
     <% @reviews.take(5).each do |review| %>
 
       <div class="single-review">
         <span class="rating"><a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />
         <%= review.rating %>/10</span><br/>
         <span class="author">Author: <%= review.user_email %></span><br/>
-        <% if review.comment.present? %>
-          Comment: <%= review.comment %><br/>
-        <% end %>
         <%= review.created_at.to_date %><br />
       </div>
     
     <% end %>
       
-    </table>
+    </div>
     
   </div>
   
