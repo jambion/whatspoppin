@@ -24,7 +24,8 @@ private
       "genre" => genre_list[json["genres"].first["id"]],
       "poster_path" => json["poster_path"],
       "tmdb_id" => json["id"],
-      "overview" => json["overview"]
+      "overview" => json["overview"],
+      "runtime" => json["runtime"]
     }
     
     return movieHash

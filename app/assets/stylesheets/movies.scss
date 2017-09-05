@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.show-header {
+  font-size: 200%;
+}
+
 .show-top {
   display: flex;
   flex-direction: column;
@@ -16,24 +20,42 @@
 
 .show-bottom {
   display: flex;
-  justify-content: space-around;
-  // border: solid 1px black;
+  justify-content: center;
   width: 70%;
-  // align-items: center;
-  // margin: 20px;
-}
+  background: #EEEEEE;
+  margin: 20px;
+  padding: 15px;
 
-.show-review-header {
-  font-size: 200%;
 }
 
 .show-movie {
   display: flex;
-  justify-content: center;
+
+}
+
+.single-review {
+  margin-top: 10px;
+}
+
+.show-reviews {
+  margin-left: 20px;
+
 }
 
 .show-single-movie {
-  margin: 5px;
-  // border: 1px solid red;
+  width: 50%;
+
 }
+.rating {
+  font-size: 137%;
+}
+
+.author {
+  font-size: 117%;
+}
+
+.show-poster {
+  margin-right: 20px;
+}
+
 

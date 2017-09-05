@@ -1,10 +1,11 @@
 <div class="movie-show">
   
   <div class="show-top">
-    <div class="show-header"><%= @movie["title"] %></div>
+    <span class="show-header"><%= @movie["title"] %></span>
     <div class="show-basic-details">
-      <%= @movie["genre"] %> | <%= @movie["release_date"] %> <br />
+      <%= @movie["genre"] %> | <%= @movie["release_date"] %> | <%= @movie["runtime"] %> min
     </div>
+    
   </div>
    
   <div class="show-bottom">
@@ -14,33 +15,26 @@
         <img src="https://image.tmdb.org/t/p/w500/<%= @movie['poster_path'] %>" width=250 >
       </div>
       
-      <div class="show-single-movie">
-        <p><%= @movie["overview"] %></p> 
-        <a href="/movies/<%= @movie["tmdb_id"] %>/reviews/new">Review</a>
+
+      <div class="show-reviews">
+        <div class="show-header">Reviews</div>
+        <% if @reviews.exists? %>
+          <% @reviews.each do |review| %>
+            <div class="single-review">
+              <span class="rating"><%= review.rating %>/10</span><br/>
+              <span class="author">Author: <%= review.user_email %></span><br/>
+              <% if review.comment.present? %>
+                Comment: <%= review.comment %><br/>
+              <% end %>
+              <%= review.created_at.to_date %><br />
+            </div>
+          <% end %>
+        <% else %>
+          Be the first to review! <br />
+        <% end %>
+        <a href="/movies/<%= @movie["tmdb_id"] %>/reviews/new">Leave a Review</a>
       </div>
     </div>
-    
-
-    
-    <div class="show-movie-reviews">
-      <div class="show-review-header">Reviews</div>
-      <% if @reviews.exists? %>
-        <% @reviews.each do |review| %>
-          Rating: <%= review.rating %>/10 <br/>
-          Review By: <%= review.user_email %> <br/>
-          <% if review.comment.present? %>
-            Comment: <%= review.comment %> <br/>
-          <% end %>
-          Date Created: <%= review.created_at %> <br />
-        <% end %>
-      <% else %>
-        Be the first to review!
-      
-      <% end %>
-    </div>
-  
-      
-      
     
   </div>
 
