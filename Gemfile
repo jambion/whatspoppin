@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 ruby '2.3.0'
 
