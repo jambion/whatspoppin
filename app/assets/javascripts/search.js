@@ -8,8 +8,9 @@ $(document).ready(function () {
   var $search_list = $("#search-list");
   
   $("#submit").on("click", function () {
-    $('.search-table').attr('style','display:block');
     searchMovies();
+    $('.search-table').attr('style','display:block');
+    
   });
   
   function searchMovies() {

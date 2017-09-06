@@ -1,21 +1,15 @@
 <div class="movie-show">
-  
   <div class="show-top">
     <span class="show-header"><%= @movie["title"] %></span>
     <div class="show-basic-details">
       <%= @movie["genre"] %> | <%= @movie["release_date"] %> | <%= @movie["runtime"] %> min
     </div>
-    
   </div>
-   
   <div class="show-bottom">
-    
     <div class="show-movie">
       <div class="show-poster">
         <img src="https://image.tmdb.org/t/p/w500/<%= @movie['poster_path'] %>" width=250 >
       </div>
-      
-
       <div class="show-reviews">
         <div class="show-header">Reviews</div>
         <% if @reviews.exists? %>
@@ -35,7 +29,5 @@
         <a href="/movies/<%= @movie["tmdb_id"] %>/reviews/new">Leave a Review</a>
       </div>
     </div>
-    
   </div>
-
 </div>
