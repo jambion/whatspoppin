@@ -25,3 +25,7 @@ a {
 a:link {
   text-decoration: none;
 }
+
+.flash {
+  text-align: center;
+}

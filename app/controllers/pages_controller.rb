@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   end
   
   def browse
-    # @reviews = Review.all
     @reviews = Review.order("created_at DESC") 
   end
   

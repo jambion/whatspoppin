@@ -1,29 +1,22 @@
 
-<div class="review-content">
-
-  <div class="new-review">
-    <span class="show-header">Review <%= @movie.title %></span>
-    <%= form_for [ @movie, @review ] do |f| %>
-      <p>
-        <%= f.label :user_email, "Your email"%> <br />
-        <%= f.text_field :user_email %> 
-      </p>
-      
-      <p>
-        <%= f.label :rating %> <br />
-        <%= f.select :rating, ["Please select", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
-        :disabled => "Please select", :selected => "Please select"%>
-        
-      </p>
-      
-      <p>
-        <%= f.label :comment, "Comment (optional)" %> <br />
-        <%= f.text_area :comment, cols: "30", rows: "10" %>
-      </p>
-    
-      <p>
-        <%= f.submit "Submit Review" %>
-      </p>  
-    <% end %>
-  </div>
+<div class="new-review">
+  <span class="show-header">Review <%= @movie.title %></span>
+  <%= form_for [ @movie, @review ] do |f| %>
+    <p>
+      <%= f.label :user_email, "Your email"%> <br />
+      <%= f.text_field :user_email %> 
+    </p>
+    <p>
+      <%= f.label :rating %> <br />
+      <%= f.select :rating, ["Please select", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+      :disabled => "Please select", :selected => "Please select"%>
+    </p>
+    <p>
+      <%= f.label :comment, "Comment (optional)" %> <br />
+      <%= f.text_area :comment, cols: "30", rows: "10" %>
+    </p>
+    <p>
+      <%= f.submit "Submit Review" %>
+    </p>  
+  <% end %>
 </div>

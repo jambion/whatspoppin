@@ -1,20 +1,6 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-
-// .content {
-//   width: 70%;
-//   display: flex;
-//   justify-content: center;
-//   border: 1px solid blue;
-// }
-
 .browse-page {
   display: flex;
   justify-content: center;
-  // border: 1px solid black;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -24,19 +10,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // border: 1px solid black;
 }
 
 .about-content {
   display: flex;
-  // border: 1px solid blue;
   justify-content: center
-}
-
-.about {
-  // border: 1px solid black;
-  // background: #E7EEEE;
-  // width: 50%;
 }
 
 h2 {
@@ -49,12 +27,9 @@ h2 {
 
 .browse-reviews {
   margin-left: 15px;
-  // border: 1px solid black;
-  // padding: 10px;
 }
 
 #recent-reviews {
-  // border: 1px solid blue;
   padding: 10px 15px 15px 15px;
   background: #E7EEEE;
 }
@@ -65,4 +40,14 @@ tr {
 
 .search-table {
   display: none;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-image {
+  margin-bottom: 20px;
 }

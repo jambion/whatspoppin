@@ -1,11 +1,6 @@
-// Place all the styles related to the movies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .movie-show {
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
   align-items: center;
 }
 
@@ -23,7 +18,7 @@
   display: flex;
   justify-content: center;
   max-width: 700px;
-  background: #EEEEEE;
+  background: #E7EEEE;
   margin: 20px;
   padding: 15px;
 
@@ -31,7 +26,6 @@
 
 .show-movie {
   display: flex;
-
 }
 
 .single-review {
@@ -40,13 +34,12 @@
 
 .show-reviews {
   margin-left: 20px;
-
 }
 
 .show-single-movie {
   width: 50%;
-
 }
+
 .rating {
   font-size: 137%;
 }
