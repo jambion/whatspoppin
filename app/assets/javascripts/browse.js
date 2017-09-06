@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var $browse_list = $("#browse-list");
-  var newTableObject = $(".browse-table");
+
   var genre_id = { 28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy", 
   99: "Documentary", 18: "Drama", 10751: "Family", 14: "Fantasy", 36: "History", 
   27: "Horror", 10402: "Music", 9648: "Mystery", 10479: "Romance", 

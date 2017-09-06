@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
 
   var genre_id = { 28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy", 
