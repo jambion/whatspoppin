@@ -65,14 +65,14 @@ $(document).ready(function () {
     <% @reviews.take(5).each do |review| %>
 
       <div class="single-review">
-        <span class="rating"><a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />
-        <%= review.rating %>/10</span><br/>
-        <span class="author">Author: <%= review.user_email %></span><br/>
+        <a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />
+        <%= review.rating %>/10<br/>
+        Author: <%= review.user_email %><br/>
         <%= review.created_at.to_date %><br />
       </div>
     
     <% end %>
-      
+      <p><%= link_to "View All Reviews", reviews_path %></p> 
     </div>
     
   </div>
