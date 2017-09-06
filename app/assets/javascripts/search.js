@@ -7,7 +7,7 @@ $(document).ready(function () {
 
   var $search_list = $("#search-list");
   
-  $("#submit").click(function () {
+  $("#submit").on("click", function () {
     $('.search-table').attr('style','display:block');
     searchMovies();
   });
@@ -19,7 +19,6 @@ $(document).ready(function () {
       data: { "api_key": "4aa07b165bfe3ed8596da63f31c9a2bc" },
       dataType: "json",
       success: function (result) {
-        
         $search_list.html("");
         for (var i = 0; i < result["results"].length; i++) {
           var image = "https://image.tmdb.org/t/p/w500/" + result["results"][i]["poster_path"];
