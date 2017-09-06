@@ -8,4 +8,8 @@ class PagesController < ApplicationController
     # @reviews = Review.all
     @reviews = Review.order("created_at DESC") 
   end
+  
+  def about
+    
+  end
 end

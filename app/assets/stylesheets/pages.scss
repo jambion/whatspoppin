@@ -13,11 +13,11 @@
 
 .browse-page {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   // border: 1px solid black;
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-page {
@@ -27,6 +27,17 @@
   // border: 1px solid black;
 }
 
+.about-content {
+  display: flex;
+  // border: 1px solid blue;
+  justify-content: center
+}
+
+.about {
+  // border: 1px solid black;
+  // background: #E7EEEE;
+  // width: 50%;
+}
 
 h2 {
   text-align: center;
