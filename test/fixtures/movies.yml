@@ -5,3 +5,7 @@ one:
 
 two:
   title: MyString
+
+minions:
+  id: 211672
+  title: "Minions"
