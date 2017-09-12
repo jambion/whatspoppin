@@ -1,0 +1,11 @@
+<div id="movies-index">
+  <h2>Reviewed Movies</h2>
+  <% @movies.each do |movie| %>
+    <% if movie.reviews.present? %>
+      <div class="movie-indiv"> 
+        <%= link_to movie.title, movie_path(movie) %>
+      </div>
+    <% end %>
+  <% end %>
+  
+</div>

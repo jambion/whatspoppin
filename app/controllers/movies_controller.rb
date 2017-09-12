@@ -2,6 +2,10 @@ class MoviesController < ApplicationController
   require "net/http"
   require "uri"
   
+  def index
+    @movies = Movie.all
+  end
+  
   def show 
     @movie = get_single_movie(params[:id])
     @reviews = Review.where(movie_id: params[:id])
