@@ -29,13 +29,14 @@ $(document).ready(function () {
           + "</tr>"
           );
         }
-      $(".movie-table").tablesorter(); 
+        $(".movie-table").tablesorter(); 
       },
       error: function (xhr, status, error) {
         $browse_list.html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
       }
     });
+    
   }
-  sorttable.makeSortable(newBrowseTableObject);
+  
 
 });
