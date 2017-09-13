@@ -15,6 +15,7 @@
       <%= f.label :comment, "Comment (optional)" %> <br />
       <%= f.text_area :comment, cols: "30", rows: "10" %>
     </p>
+    <p>Today's Date: <%= Time.now.strftime("%m/%d/%Y") %></p>
     <p>
       <%= f.submit "Submit Review" %>
     </p>  
