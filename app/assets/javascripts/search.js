@@ -13,6 +13,13 @@ $(document).ready(function () {
     
   });
   
+  $("#searchInput").keyup(function(event) {
+    if(event.keyCode == 13){
+      searchMovies();
+      $('.search-table').attr('style','display:block');
+    }
+  });
+  
   function searchMovies() {
     $.ajax({
       url: "https://api.themoviedb.org/3/search/movie?query=" + 
