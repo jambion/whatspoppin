@@ -1,3 +1,4 @@
+
 <div id="reviews-index">
   <h2>All Reviews</h2>
   <% @reviews.each do |review| %>
@@ -12,4 +13,5 @@
       <%= review.created_at.to_date %><br />
     </div>
   <% end %>
+<%= will_paginate @reviews %>
 </div>

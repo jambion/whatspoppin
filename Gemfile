@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'will_paginate'
 gem 'jquery-turbolinks', '~> 2.1'
 # Use to sort movie tables
 gem 'jquery-tablesorter'

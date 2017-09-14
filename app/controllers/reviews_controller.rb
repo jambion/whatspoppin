@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   require "net/http"
   require "uri"
   def index 
-    @reviews = Review.order("created_at DESC") 
+    @reviews = Review.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
   end
   
   def new 
