@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   require "uri"
   
   def index
-    @movies = Movie.all
+    @movies = Movie.order("created_at DESC")
   end
   
   def show 

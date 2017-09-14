@@ -29,13 +29,6 @@ class ReviewTest < ActiveSupport::TestCase
     @review.comment = ""
     assert @review.valid?
   end
-
-  test "email addresses should be unique" do 
-    duplicate_review = @review.dup
-    duplicate_review.user_email = @review.user_email.upcase
-    @review.save
-    assert_not duplicate_review.valid?
-  end
   
   test "email validation should accept valid addresses" do 
     valid_addresses = %w[user@example.om User@foo.COM A_US@foo.bar.org 
