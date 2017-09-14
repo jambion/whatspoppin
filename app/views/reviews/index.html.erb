@@ -2,7 +2,7 @@
   <h2>All Reviews</h2>
   <% @reviews.each do |review| %>
     <div class="review-details">
-      <a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />
+      <a href="/movies/<%= review.movie.try(:id) %>"><%= review.movie.try(:title) %></a><br />
       <span class="rating"><%= review.rating %>/10</span><br/>
       <span class="author">Author: <%= review.user_email %></span><br/>
       <% if review.comment.present? %>

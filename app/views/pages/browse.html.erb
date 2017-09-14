@@ -24,7 +24,7 @@
     <% @reviews.take(5).each do |review| %>
 
       <div class="single-review">
-        <a href="/movies/<%= review.movie.id %>"><%= review.movie.title %></a><br />
+        <a href="/movies/<%= review.movie.try(:id) %>"><%= review.movie.try(:title) %></a><br />
         <%= review.rating %>/10<br/>
         Author: <%= review.user_email %><br/>
         <%= review.created_at.to_date %><br />

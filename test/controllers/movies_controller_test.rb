@@ -5,8 +5,13 @@ class MoviesControllerTest < ActionController::TestCase
   #   assert true
   # end
   
-  test "get show" do
-    get movie_path(movies(:minions))
+  def setup 
+    @movie = Movie.create(id: 7071738, title: "Test Movie")
+  end
+  
+  test "get index" do
+    get :index, id: @movie.id, title: @movie.title
     assert_response :success
   end
+
 end
