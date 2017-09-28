@@ -4,12 +4,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
   resources :reviews
-  
-  resources :pages do
-    collection do
-      get "browse"
-      get "search"
-      get "about"
-  end
-end
+  get "/about", to: "pages#about"
+  get "/search", to: "pages#search"
+
 end
