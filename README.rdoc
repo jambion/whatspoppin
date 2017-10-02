@@ -5,4 +5,4 @@ https://www.themoviedb.org/documentation/api/discover
 https://richardroseblog.wordpress.com/2016/07/01/the-movie-database-tmdb-api/
 https://mottie.github.io/tablesorter/docs/
 https://stackoverflow.com/questions/14267781/sorting-html-table-with-javascript
-https://www.railstutorial.org/book
+https://www.railstutorial.org/book 
