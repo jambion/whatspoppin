@@ -37,7 +37,7 @@ private
   def get_single_movie(tmdb_id)
     result = Net::HTTP.get(URI.parse("https://api.themoviedb.org/3/movie/" + tmdb_id.to_s + "?api_key=4aa07b165bfe3ed8596da63f31c9a2bc"))    
     json = JSON.parse(result)
-    movieHash = { "title" => json["title"] }
-    return movieHash
+    movie_info = { "title" => json["title"] }
+    return movie_info
   end
 end

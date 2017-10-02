@@ -22,16 +22,15 @@ private
     
     result = Net::HTTP.get(URI.parse("https://api.themoviedb.org/3/movie/" + tmdb_id + "?api_key=4aa07b165bfe3ed8596da63f31c9a2bc"))    
     json = JSON.parse(result)
-    movieHash = {
+    movie_info = {
      	"title" => json["title"],
       "release_date" => json["release_date"],
       "genre" => genre_list[json["genres"].first["id"]],
       "poster_path" => json["poster_path"],
       "tmdb_id" => json["id"],
-      "overview" => json["overview"],
-      "runtime" => json["runtime"]
+      "overview" => json["overview"]
     }
     
-    return movieHash
+    return movie_info
   end
 end
